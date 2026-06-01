@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation Games | Play Free Online | Neonretrocade</title>
+  <meta name="description" content="Play the best free Simulation games online on Neonretrocade. Page 1 of our curated collection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(22, 28, 45, 0.7);
+      --accent: #6c5ce7;
+      --accent-glow: rgba(108, 92, 231, 0.4);
+      --text-white: #ffffff;
+      --text-gray: #a0aec0;
+      --neon-green: #00f2fe;
+      --neon-pink: #ff007f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #1a1b36 0%, var(--bg-dark) 70%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Navbar Styles */
+    .top-navbar {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .top-nav-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .top-nav-logo span {
+      -webkit-text-fill-color: initial;
+    }
+
+    .top-nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .top-nav-item {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav-item:hover, .top-nav-item.active {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Dropdown Styles */
+    .top-nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .top-nav-dropdown-btn {
+      background: none;
+      border: none;
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .top-nav-dropdown-btn:hover, .top-nav-dropdown.active .top-nav-dropdown-btn {
+      color: var(--text-white);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .top-nav-dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: #111519;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-width: 180px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      z-index: 1010;
+      padding: 8px 0;
+      margin-top: 5px;
+    }
+
+    .top-nav-dropdown-content a {
+      color: var(--text-gray);
+      padding: 10px 20px;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .top-nav-dropdown-content a:hover, .top-nav-dropdown-content a.active {
+      color: var(--text-white);
+      background: var(--accent);
+    }
+
+    .top-nav-dropdown:hover .top-nav-dropdown-content {
+      display: block;
+    }
+
+    /* Toggle button for Mobile */
+    .top-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1020;
+    }
+
+    .top-nav-toggle .toggle-bar {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text-white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    header {
+      padding: 15px 20px 8px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-gray) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Categories Navigation inside Footer */
+    .categories-nav {
+      padding: 15px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .categories-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-link {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover, .category-link.active {
+      color: var(--text-white);
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      box-shadow: 0 0 40px var(--accent-glow);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .thumbnail-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      background: #000;
+    }
+
+    .thumbnail-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover .thumbnail-wrapper img {
+      transform: scale(1.08);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-white);
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .play-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--accent);
+      color: var(--text-white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+    }
+
+    .play-btn:hover {
+      background: #7d6ef9;
+      box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
+    }
+
+    .play-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      padding: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .page-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-white);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-link.active {
+      background: var(--accent);
+      color: var(--text-white);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+    }
+
+    .page-link.disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .page-arrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-gray);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-toggle {
+        display: flex;
+      }
+
+      .top-nav-menu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 70px);
+        background: #0b0f19;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 30px 20px;
+        gap: 10px;
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      .top-nav-menu.open {
+        right: 0;
+      }
+
+      .top-nav-item, .top-nav-dropdown-btn {
+        width: 100%;
+        text-align: left;
+        padding: 12px 15px;
+      }
+
+      .top-nav-dropdown-content {
+        position: static;
+        display: block;
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        margin-top: 0;
+        padding-left: 15px;
+      }
+
+      .top-nav-toggle.active .toggle-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(2) {
+        opacity: 0;
+      }
+      .top-nav-toggle.active .toggle-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+      .subtitle {
+        font-size: 0.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+    <div class="top-nav-container">
+      <a href="index.html" class="top-nav-logo">
+        <span>🎮</span> Neonretrocade
+      </a>
+
+      <button class="top-nav-toggle" id="topNavToggle" aria-label="Toggle menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+      <div class="top-nav-menu" id="topNavMenu">
+        <a href="index.html" class="top-nav-item ">Home</a>
+        <a href="category-casual.html" class="top-nav-item ">Casual</a>
+        <a href="category-puzzle.html" class="top-nav-item ">Puzzle</a>
+        <a href="category-simulation.html" class="top-nav-item active">Simulation</a>
+        <a href="category-adventure.html" class="top-nav-item ">Adventure</a>
+        <a href="category-shooter.html" class="top-nav-item ">Shooter</a>
+        <a href="category-agility.html" class="top-nav-item ">Agility</a>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">More ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="category-strategy.html" class="">Strategy</a>
+            <a href="category-battle.html" class="">Battle</a>
+            <a href="category-racing-driving.html" class="">Racing & Driving</a>
+            <a href="category-dress-up.html" class="">Dress-up</a>
+            <a href="category-merge.html" class="">Merge</a>
+            <a href="category-match-3.html" class="">Match-3</a>
+            <a href="category-mahjong-connect.html" class="">Mahjong & Connect</a>
+            <a href="category-io.html" class="">.IO</a>
+            <a href="category-cards.html" class="">Cards</a>
+            <a href="category-educational.html" class="">Educational</a>
+            <a href="category-sports.html" class="">Sports</a>
+            <a href="category-cooking.html" class="">Cooking</a>
+            <a href="category-basketball.html" class="">Basketball</a>
+            <a href="category-bubble-shooter.html" class="">Bubble Shooter</a>
+            <a href="category-boardgames.html" class="">Boardgames</a>
+            <a href="category-quiz.html" class="">Quiz</a>
+            <a href="category-art.html" class="">Art</a>
+            <a href="category-football.html" class="">Football</a>
+            <a href="category-jigsaw.html" class="">Jigsaw</a>
+            <a href="category-bike.html" class="">Bike</a>
+            <a href="category-car.html" class="">Car</a>
+            <a href="category-controller.html" class="">Controller</a>
+            <a href="category-escape.html" class="">Escape</a>
+            <a href="category-flash.html" class="">Flash</a>
+            <a href="category-fps.html" class="">FPS</a>
+            <a href="category-horror.html" class="">Horror</a>
+            <a href="category-mahjong.html" class="">Mahjong</a>
+            <a href="category-minecraft.html" class="">Minecraft</a>
+            <a href="category-pool.html" class="">Pool</a>
+            <a href="category-soccer.html" class="">Soccer</a>
+            <a href="category-stickman.html" class="">Stickman</a>
+            <a href="category-thinky.html" class="">Thinky</a>
+            <a href="category-tower-defense.html" class="">Tower Defense</a>
+            <a href="category-parking.html" class="">Parking</a>
+            <a href="category-parking35.html" class="">Parking35</a>
+            <a href="category-mobile2-095.html" class="">Mobile2,095</a>
+            <a href="category-3d1-383.html" class="">3D1,383</a>
+            <a href="category-car373.html" class="">Car373</a>
+            <a href="category-mouse1-697.html" class="">Mouse1,697</a>
+            <a href="category-brain260.html" class="">Brain260</a>
+            <a href="category-care.html" class="">Care</a>
+          </div>
+        </div>
+        <div class="top-nav-dropdown ">
+          <button class="top-nav-dropdown-btn">About ▾</button>
+          <div class="top-nav-dropdown-content">
+            <a href="contact.html" class="">Contact Us</a>
+            <a href="privacy.html" class="">Privacy Policy</a>
+            <a href="terms.html" class="">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Simulation Games</h1>
+    <p class="subtitle">Play the best free Simulation games online on Neonretrocade. Page 1 of our curated collection.</p>
+  </header>
+
+    <!-- Dedicated Search Bar Row -->
+  <div class="search-bar-row">
+    <div class="search-bar-row-container">
+      <input type="text" id="searchInput" placeholder="Search for your favorite games..." autocomplete="off">
+      <div id="searchSuggestions" class="search-suggestions"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+            <!-- Card: Fruit Merge Arena -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/302.webp" alt="Fruit Merge Arena Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Fruit Merge Arena</h2>
+          <p class="card-description">Fruit Merge Arena is a fun and relaxing game where you drop fruits and merge the same ones to create bigger fruits. Keep merging step by step and try to reach the ultimate fruit — the watermelon! But be careful, space is limited and the board can fill up quickly. Plan your moves wisely and keep merging to stay in the game.Feeling stuck or running out of space? Don’t worry! You can watch a reward ad to remove all instances of a selected fruit and make room for new moves.</p>
+          <div class="tag-container">
+            <span class="tag">Simulation</span>
+<span class="tag">Merge</span>
+          </div>
+          <a href="fruit-merge-arena.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Flight Sim Air Traffic control -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/312.webp" alt="Flight Sim Air Traffic control Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Flight Sim Air Traffic control</h2>
+          <p class="card-description">Flight Sim is a game where you have to guide aircraft to their landing zones, keep the skies safe to complete the levels to get high score.</p>
+          <div class="tag-container">
+            <span class="tag">Puzzle</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="flight-sim-air-traffic-control.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Build a Go-Kart -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/320.webp" alt="Build a Go-Kart Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Build a Go-Kart</h2>
+          <p class="card-description">Build your karting empire from scratch — from simple straights to complex tracks with boosts and risky turns.
+
+Design unique tracks using modular blocks: combine elements, optimize your route, and find the perfect balance between speed and profit. Every ride earns money — and your track design determines how much you make.</p>
+          <div class="tag-container">
+            <span class="tag">Simulation</span>
+          </div>
+          <a href="build-a-go-kart.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Pimple Squeeze -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/324.webp" alt="Pimple Squeeze Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Pimple Squeeze</h2>
+          <p class="card-description">Dive into ASMR Pimple Pop, the ultimate stress-relief pimple popping game for casual fun! Squeeze, pop, and zap blackheads and pimples with satisfying ASMR sounds and juicy visuals. Enjoy quick arcade-style levels with combo bonuses and quirky faces to clean up. With smooth controls and gross-fun charm, this pimple pop arcade delivers unmatched satisfaction. Ready to pop? Download now and embrace the oddly addictive experience!</p>
+          <div class="tag-container">
+            <span class="tag">Simulation</span>
+          </div>
+          <a href="pimple-squeeze.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Idle Supermarket Tycoon -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/329.webp" alt="Idle Supermarket Tycoon Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Idle Supermarket Tycoon</h2>
+          <p class="card-description">Build and manage your dream shopping mall! Expand by adding new shops, upgrade interiors, serve customers, and boost your reputation. Invest wisely, assign priority shoppers, and earn extra income with delivery vehicles. Complete missions to unlock rewards!</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="idle-supermarket-tycoon.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: The Roman Empire Colosseum -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/330.webp" alt="The Roman Empire Colosseum Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">The Roman Empire Colosseum</h2>
+          <p class="card-description">The war in the colosseum has never been as epic as in this game! Arrange your units and send them into battle! This online game is a battle simulator similar to Totally Accurate Battle Simulator. Your units include warriors, riders, titans, dwarves, mages, and more.</p>
+          <div class="tag-container">
+            <span class="tag">Battle</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="the-roman-empire-colosseum.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Teacher Simulator -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/335.webp" alt="Teacher Simulator Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Teacher Simulator</h2>
+          <p class="card-description">Teacher Simulator is a fun simulation game in which you play the role of a teacher. Mark exams and ensure the kids are on their best behavior. You may have been the student, but now you get to be the one in charge!</p>
+          <div class="tag-container">
+            <span class="tag">Quiz</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="teacher-simulator.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Ship Factory Tycoon -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/353.webp" alt="Ship Factory Tycoon Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ship Factory Tycoon</h2>
+          <p class="card-description">Play Ship Factory Tycoon free online and build your industrial empire in a fast-loading browser game you can play instantly with no download and no install. Manage production lines, automate workflows, and upgrade your shipyard in a smart strategy experience that feels like a rewarding brain game. This unblocked game runs smoothly at school or home and is fully mobile-friendly. Optimized for desktop and mobile, it’s a free online game perfect for quick breaks or long-term tycoon planning anytime</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="ship-factory-tycoon.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Noob Ragdoll: Crazy Punch -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/358.webp" alt="Noob Ragdoll: Crazy Punch Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Noob Ragdoll: Crazy Punch</h2>
+          <p class="card-description">In "Noob Ragdoll: Crazy Punch", you'll see the world from a unique perspective - through the eyes of the glove itself! 
+
+What Awaits You:
+-First-person camera - Feel like you're delivering the punch yourself!
+-Minecraft-style characters and vibrant action-packed scenes
+-Epic punches and spectacular body launches on every level
+-Multiple glove skins - choose yours and strike with style!
+
+Test your accuracy and style in "Noob Ragdoll: Crazy Punch" - ragdoll physics has never been this dynamic!</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="noob-ragdoll-crazy-punch.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: ASMR Girl: Livestream Mukbang -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/365.webp" alt="ASMR Girl: Livestream Mukbang Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">ASMR Girl: Livestream Mukbang</h2>
+          <p class="card-description">Step into the world of ASMR Girl: Livestream Mukbang, where you take on the role of an adorable mukbang streamer! Get ready to indulge in delicious food, satisfy your cravings, and share the experience with your viewers in a cozy, interactive livestream. The more you eat and engage, the more you earn!</p>
+          <div class="tag-container">
+            <span class="tag">Cooking</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="asmr-girl-livestream-mukbang.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Police Station -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/374.webp" alt="Police Station Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Police Station</h2>
+          <p class="card-description">As the head of multiple police precincts, your mission is to boost the security rating in the district under your watchful eye. Begin your adventure by managing a modest police department, strategically hiring officers, and putting in the effort to cultivate a safer community</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="police-station.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Ultimate Transport Driving Sim -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/379.webp" alt="Ultimate Transport Driving Sim Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Ultimate Transport Driving Sim</h2>
+          <p class="card-description">The realistic and enjoyable driving characteristics of Ultimate automobile Driving Simulator combine to make it the best automobile driving simulator for mobile devices. The best driving physics are found in the best vehicle driving simulator! All types of vehicles, from off-road SUVs to race automobiles, have their unique physics!</p>
+          <div class="tag-container">
+            <span class="tag">.IO</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="ultimate-transport-driving-sim.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: IDLE Pet -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/380.webp" alt="IDLE Pet Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">IDLE Pet</h2>
+          <p class="card-description">Anatomical clicker. Start with one cell and create a whole animal! You will see what the body is made of from the inside, gradually growing bones, organs, skin and wool!</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="idle-pet.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Animal Merge Zoo Park -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/402.webp" alt="Animal Merge Zoo Park Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Animal Merge Zoo Park</h2>
+          <p class="card-description">Animal Merge Zoo Park is a fun and addictive idle zoo simulation game where you build, manage, and expand your very own wildlife empire. Start with a small zoo and grow it into a world filled with animals, wild beasts, dinosaurs, monsters, and magical creatures like unicorns. Become the ultimate zoo tycoon by merging creatures, caring for animals, producing food, managing visitors, and unlocking new zones.
+Merge Animals and Discover New Species</p>
+          <div class="tag-container">
+            <span class="tag">Simulation</span>
+          </div>
+          <a href="animal-merge-zoo-park.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Cafe Owner Business Simulator -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/415.webp" alt="Cafe Owner Business Simulator Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Cafe Owner Business Simulator</h2>
+          <p class="card-description">Build your dream cafe and become a successful business owner in Cafe Owner: Business Simulator! Restore your dad cafe and turn an abandoned space into a thriving restaurant. This exciting and simulation game lets you experience what it’s like to run your own cafe, from cleaning up to expanding into a successful cafe business.</p>
+          <div class="tag-container">
+            <span class="tag">.IO</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="cafe-owner-business-simulator.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Dessert DIY -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/416.webp" alt="Dessert DIY Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Dessert DIY</h2>
+          <p class="card-description">Step into a sweet little food studio and craft desserts for hungry customers! Follow simple step-by-step recipes, pick the right ingredients, and assemble tasty treats exactly as requested. Satisfy each guest to earn coins, then spend your rewards in the shop to unlock more items, upgrades, and delicious options. Easy to learn, relaxing to play, and full of colorful desserts!</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="dessert-diy.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Last Day On Earth Survival -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/428.webp" alt="Last Day On Earth Survival Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Last Day On Earth Survival</h2>
+          <p class="card-description">Last Day on Earth: Survival is a 2D survival simulation game. In this large ruined city, you have 51 locations to discover. When you collect some wood and metal, you can make weapons on the Workbench. When you win enough experience and level up, you can check your Attribute and upgrade HP, ATK, Speed, and Search. In the day, explore and go to places you have never visited. I hope you will survive 50 days and explore all 51 locations.</p>
+          <div class="tag-container">
+            <span class="tag">Adventure</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="last-day-on-earth-survival.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Port Shipping Tycoon -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/430.webp" alt="Port Shipping Tycoon Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Port Shipping Tycoon</h2>
+          <p class="card-description">Embark on a thrilling adventure as you build your own shipping empire in this addictive tile-flipping game! With just one click, start constructing your port business by flipping tiles to supply resources to bustling ports around the world.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="port-shipping-tycoon.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Tiny Farm -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/445.webp" alt="Tiny Farm Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Tiny Farm</h2>
+          <p class="card-description">Tiny Farm is a small, cozy farming game where everything grows at your pace.
+
+Harvest crops, collect goods from animals, and slowly upgrade your farm into something wonderful. Each upgrade brings visible progress, and each world unlocks exciting new possibilities.
+
+Sit back, relax, and watch your tiny farm flourish.</p>
+          <div class="tag-container">
+            <span class="tag">Casual</span>
+<span class="tag">Simulation</span>
+          </div>
+          <a href="tiny-farm.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Card: Supermarket Manager Simulator -->
+      <article class="card">
+        <div class="thumbnail-wrapper">
+          <img src="images/450.webp" alt="Supermarket Manager Simulator Cover" loading="lazy">
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Supermarket Manager Simulator</h2>
+          <p class="card-description">Supermarket Manager Simulator is a business game. Have you ever fantasized about running your supermarket in your childhood?  Play as the store manager in this game and stock up on a variety of goods, from chips and fries to meats, burgers, vegetables, and fruits. From stocking, and shelving to selling, you will be the one to take care of it!  Don't hesitate to start your entrepreneurial journey now and become a great store tycoon!</p>
+          <div class="tag-container">
+            <span class="tag">Simulation</span>
+          </div>
+          <a href="supermarket-manager-simulator.html" class="play-btn">Play Now &rarr;</a>
+        </div>
+      </article>
+    </div>
+    <div class="pagination"><span class="page-link disabled">&laquo; Prev</span><span class="page-link active">1</span><a href="category-simulation-2.html" class="page-link">2</a><a href="category-simulation-3.html" class="page-link">3</a><a href="category-simulation-2.html" class="page-link page-arrow">Next &raquo;</a></div>
+  </div>
+
+  <footer>
+      <nav class="categories-nav">
+    <div class="categories-container">
+      <a href="index.html" class="category-link ">All Games</a>
+      <a href="category-io.html" class="category-link ">.IO</a>
+      <a href="category-3d1-383.html" class="category-link ">3D1,383</a>
+      <a href="category-adventure.html" class="category-link ">Adventure</a>
+      <a href="category-agility.html" class="category-link ">Agility</a>
+      <a href="category-art.html" class="category-link ">Art</a>
+      <a href="category-basketball.html" class="category-link ">Basketball</a>
+      <a href="category-battle.html" class="category-link ">Battle</a>
+      <a href="category-bike.html" class="category-link ">Bike</a>
+      <a href="category-boardgames.html" class="category-link ">Boardgames</a>
+      <a href="category-brain260.html" class="category-link ">Brain260</a>
+      <a href="category-bubble-shooter.html" class="category-link ">Bubble Shooter</a>
+      <a href="category-car.html" class="category-link ">Car</a>
+      <a href="category-car373.html" class="category-link ">Car373</a>
+      <a href="category-cards.html" class="category-link ">Cards</a>
+      <a href="category-care.html" class="category-link ">Care</a>
+      <a href="category-casual.html" class="category-link ">Casual</a>
+      <a href="category-controller.html" class="category-link ">Controller</a>
+      <a href="category-cooking.html" class="category-link ">Cooking</a>
+      <a href="category-dress-up.html" class="category-link ">Dress-up</a>
+      <a href="category-educational.html" class="category-link ">Educational</a>
+      <a href="category-escape.html" class="category-link ">Escape</a>
+      <a href="category-flash.html" class="category-link ">Flash</a>
+      <a href="category-football.html" class="category-link ">Football</a>
+      <a href="category-fps.html" class="category-link ">FPS</a>
+      <a href="category-horror.html" class="category-link ">Horror</a>
+      <a href="category-jigsaw.html" class="category-link ">Jigsaw</a>
+      <a href="category-mahjong.html" class="category-link ">Mahjong</a>
+      <a href="category-mahjong-connect.html" class="category-link ">Mahjong & Connect</a>
+      <a href="category-match-3.html" class="category-link ">Match-3</a>
+      <a href="category-merge.html" class="category-link ">Merge</a>
+      <a href="category-minecraft.html" class="category-link ">Minecraft</a>
+      <a href="category-mobile2-095.html" class="category-link ">Mobile2,095</a>
+      <a href="category-mouse1-697.html" class="category-link ">Mouse1,697</a>
+      <a href="category-parking.html" class="category-link ">Parking</a>
+      <a href="category-parking35.html" class="category-link ">Parking35</a>
+      <a href="category-pool.html" class="category-link ">Pool</a>
+      <a href="category-puzzle.html" class="category-link ">Puzzle</a>
+      <a href="category-quiz.html" class="category-link ">Quiz</a>
+      <a href="category-racing-driving.html" class="category-link ">Racing & Driving</a>
+      <a href="category-shooter.html" class="category-link ">Shooter</a>
+      <a href="category-simulation.html" class="category-link active">Simulation</a>
+      <a href="category-soccer.html" class="category-link ">Soccer</a>
+      <a href="category-sports.html" class="category-link ">Sports</a>
+      <a href="category-stickman.html" class="category-link ">Stickman</a>
+      <a href="category-strategy.html" class="category-link ">Strategy</a>
+      <a href="category-thinky.html" class="category-link ">Thinky</a>
+      <a href="category-tower-defense.html" class="category-link ">Tower Defense</a>
+    </div>
+  </nav>
+    <p style="margin-top: 15px;">&copy; 2026 Simulation Games. Deployed on neonretrocade.github.io.</p>
+    <div class="footer-links" style="margin-top: 15px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; align-items: center;">
+  <a href="contact.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Contact Us</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="privacy.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Privacy Policy</a>
+  <span style="color: rgba(255, 255, 255, 0.15);">|</span>
+  <a href="terms.html" style="color: var(--text-gray); text-decoration: none; font-size: 0.9rem;">Terms of Service</a>
+</div>
+
+  </footer>
+
+  <script src="ads-manager.js" defer></script>
+  <script src="search.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const topNavToggle = document.getElementById('topNavToggle');
+      const topNavMenu = document.getElementById('topNavMenu');
+      if (topNavToggle && topNavMenu) {
+        topNavToggle.addEventListener('click', () => {
+          topNavMenu.classList.toggle('open');
+          topNavToggle.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
